@@ -2,6 +2,7 @@
 !album/*.jpg
 !album_mishpuha/*.jpg
 !album_chen_zion/*.jpg
+!album_mishpuha_mega/*.jpg
 *.txt
 *.vcf
 *.pdf
