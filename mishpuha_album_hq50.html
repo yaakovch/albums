@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>משפוחה | אלבום איכות 50</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root { --warm:#f59e0b; --ink:#0f172a; --cream:#fffbeb; }
+    body { font-family:'Heebo',sans-serif; background: linear-gradient(140deg,#fff7ed 0%,#fefce8 40%,#f8fafc 100%); color: var(--ink); }
+    .masonry { column-count:1; column-gap:1rem; }
+    @media (min-width: 700px) { .masonry { column-count:2; } }
+    @media (min-width: 1100px) { .masonry { column-count:3; } }
+    .card { break-inside: avoid; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <main class="max-w-7xl mx-auto px-4 py-8 sm:py-12">
+    <header class="mb-8 sm:mb-10">
+      <p class="uppercase tracking-[0.2em] text-amber-700 text-sm font-semibold">משפוחה</p>
+      <h1 class="text-4xl sm:text-5xl font-black">אלבום נבחר | 50 תמונות באיכות גבוהה</h1>
+      <p class="text-slate-600 mt-3 max-w-3xl">אוסף חדש עם סינון איכות מחמיר: חדות/רזולוציה, מניעת כפילויות, פיזור זמנים וציטוטים אמיתיים מהצ׳אט.</p>
+      <div class="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
+        <div class="bg-white/80 rounded-xl p-3"><p class="text-slate-500">סה"כ תמונות</p><p class="font-extrabold text-lg">50</p></div>
+        <div class="bg-white/80 rounded-xl p-3"><p class="text-slate-500">שנים מכוסות</p><p class="font-extrabold text-lg">6</p></div>
+        <div class="bg-white/80 rounded-xl p-3"><p class="text-slate-500">פורמט</p><p class="font-extrabold text-lg">JPG/PNG</p></div>
+        <div class="bg-white/80 rounded-xl p-3"><p class="text-slate-500">מצב</p><p class="font-extrabold text-lg">HQ Curated</p></div>
+      </div>
+    </header>
+
+    <section class="grid lg:grid-cols-3 gap-6">
+      <div class="lg:col-span-2 bg-white/80 rounded-2xl p-4 sm:p-6 shadow">
+        <h2 class="text-2xl font-bold mb-4">גלריה</h2>
+        <div id="gallery" class="masonry"></div>
+      </div>
+      <aside class="bg-white/80 rounded-2xl p-4 sm:p-6 shadow">
+        <h2 class="text-2xl font-bold mb-5">ציר זמן</h2>
+        <div class="relative pl-6 border-l-2 border-amber-300 pb-6">
+      <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-amber-500"></span>
+      <p class="text-amber-700 font-semibold text-sm">2021</p>
+      <p class="text-slate-700">7 רגעים נבחרים</p>
+    </div><div class="relative pl-6 border-l-2 border-amber-300 pb-6">
+      <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-amber-500"></span>
+      <p class="text-amber-700 font-semibold text-sm">2022</p>
+      <p class="text-slate-700">9 רגעים נבחרים</p>
+    </div><div class="relative pl-6 border-l-2 border-amber-300 pb-6">
+      <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-amber-500"></span>
+      <p class="text-amber-700 font-semibold text-sm">2023</p>
+      <p class="text-slate-700">9 רגעים נבחרים</p>
+    </div><div class="relative pl-6 border-l-2 border-amber-300 pb-6">
+      <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-amber-500"></span>
+      <p class="text-amber-700 font-semibold text-sm">2024</p>
+      <p class="text-slate-700">11 רגעים נבחרים</p>
+    </div><div class="relative pl-6 border-l-2 border-amber-300 pb-6">
+      <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-amber-500"></span>
+      <p class="text-amber-700 font-semibold text-sm">2025</p>
+      <p class="text-slate-700">11 רגעים נבחרים</p>
+    </div><div class="relative pl-6 border-l-2 border-amber-300 pb-6">
+      <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-amber-500"></span>
+      <p class="text-amber-700 font-semibold text-sm">2026</p>
+      <p class="text-slate-700">3 רגעים נבחרים</p>
+    </div>
+      </aside>
+    </section>
+  </main>
+
+  <div id="lightbox" class="hidden fixed inset-0 bg-black/90 z-50 p-4 sm:p-8">
+    <button id="closeLb" class="absolute top-4 left-4 text-white text-4xl">&times;</button>
+    <div class="h-full flex flex-col items-center justify-center gap-4">
+      <img id="lbImg" class="max-h-[75vh] max-w-[95vw] rounded-xl shadow-2xl" alt="album image" />
+      <div class="bg-white/95 rounded-xl px-4 py-3 max-w-3xl text-center">
+        <p id="lbMeta" class="text-xs text-slate-500 mb-1"></p>
+        <p id="lbQuote" class="text-lg font-semibold"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const items=[{src:"album_mishpuha_hq50/00018678-PHOTO-2021-08-31-10-58-28.jpg",date:"2021-08-31",event:"קיץ בתנועה",speaker:"Sapir Chen-Zion 🙃",quote:"מזל טוב לדריה שעולה לכיתה א. כולנו מתרגשים איתה ❤️ מזל טוב לתבלי שמתחילה גן חדש ❤️",w:2048,h:1537},{src:"album_mishpuha_hq50/00018788-PHOTO-2021-09-19-17-36-05.jpg",date:"2021-09-17",event:"סתיו של זכרונות",speaker:"תומר לוי",quote:"מחכים לחגוג ביחד שבת הבאה",w:1537,h:2048},{src:"album_mishpuha_hq50/00018804-PHOTO-2021-09-22-13-43-17.jpg",date:"2021-09-20",event:"סתיו של זכרונות",speaker:"אמא",quote:"הילדה שמעולם לא היתה במרכז העניינים זוכה לתשומת לב יום אחד. מזל טוב נסיכה אהובה 💕",w:1600,h:1201},{src:"album_mishpuha_hq50/00019184-PHOTO-2021-11-19-09-35-59.jpg",date:"2021-11-19",event:"סתיו של זכרונות",speaker:"Sapir Chen-Zion 🙃",quote:"ובהצלחה לכפיר עוד שלושה חודשים במירוץ 10km בתל אביב 😘",w:2048,h:1536},{src:"album_mishpuha_hq50/00019195-PHOTO-2021-11-23-17-10-19.jpg",date:"2021-11-21",event:"סתיו של זכרונות",speaker:"אמא",quote:"מזל טוב לילדת יום הולדת אהובה 💙💙💙💙💙💙💙💙💙💕",w:1201,h:1600},{src:"album_mishpuha_hq50/00019283-PHOTO-2021-12-02-21-48-39.jpg",date:"2021-12-02",event:"חורף משפחתי",speaker:"אור",quote:"תודה רבה לכל מי שטרח והגיע הערב לחגוג לבלי🙂 וחיבוק לחנציונים בבידוד. חזרתם",w:1537,h:2048},{src:"album_mishpuha_hq50/00019306-PHOTO-2021-12-05-18-04-57.jpg",date:"2021-12-04",event:"חורף משפחתי",speaker:"Sapir Chen-Zion 🙃",quote:"אנחנו צריכים קצת להתארגן אחרי שבת. קצת אחרי שש - שש ורבע",w:2048,h:1537},{src:"album_mishpuha_hq50/00019626-PHOTO-2022-01-20-07-49-06.jpg",date:"2022-01-19",event:"חורף משפחתי",speaker:"Sapir Chen-Zion 🙃",quote:"בהצלחה לתומר היום במבחן בהסתברות!",w:1537,h:2048},{src:"album_mishpuha_hq50/00019875-PHOTO-2022-03-29-18-48-05.jpg",date:"2022-03-28",event:"אביב של מפגשים",speaker:"אמא",quote:"כפיר - בהצלחה! יהיה טוב. מאד.",w:1536,h:2048},{src:"album_mishpuha_hq50/00020453-PHOTO-2022-06-19-22-25-01.jpg",date:"2022-06-19",event:"קיץ בתנועה",speaker:"אמא",quote:"כל הכבוד. מרגישה טוב יותר?",w:2048,h:1536},{src:"album_mishpuha_hq50/00020649-PHOTO-2022-08-14-14-19-02.jpg",date:"2022-08-14",event:"קיץ בתנועה",speaker:"אמא",quote:"תודה רבה. היום יום הולדת קטן. נשיקות.",w:2000,h:1500},{src:"album_mishpuha_hq50/00020654-PHOTO-2022-08-16-10-24-27.jpg",date:"2022-08-15",event:"קיץ בתנועה",speaker:"אמא",quote:"תודה רבה. היום יום הולדת קטן. נשיקות.",w:2048,h:1536},{src:"album_mishpuha_hq50/00020759-PHOTO-2022-08-29-08-39-11.jpg",date:"2022-08-29",event:"קיץ בתנועה",speaker:"Sapir Chen-Zion 🙃",quote:"בהצלחה לתומר ואוריה הבוקר 📦",w:1536,h:2048},{src:"album_mishpuha_hq50/00021107-PHOTO-2022-11-05-19-08-55.jpg",date:"2022-11-05",event:"סתיו של זכרונות",speaker:"אור",quote:"בשישי ה2.12 במנגל עם זיו ויעל - קינוח עוגת יום הולדת 7 לדרי",w:1536,h:2048},{src:"album_mishpuha_hq50/00021183-PHOTO-2022-11-22-18-52-20.jpg",date:"2022-11-22",event:"סתיו של זכרונות",speaker:"אור",quote:"יום הולדת ברבורים עם חברים לדריה",w:1536,h:2048},{src:"album_mishpuha_hq50/00021405-PHOTO-2022-12-22-15-45-43.jpg",date:"2022-12-22",event:"חורף משפחתי",speaker:"אור",quote:"כמעט בת 4❤️",w:1536,h:2048},{src:"album_mishpuha_hq50/00021737-PHOTO-2023-02-28-12-20-02.jpg",date:"2023-02-28",event:"חורף משפחתי",speaker:"אור",quote:"אמור להיות מסוגל להחזיק גם אותך בפנים 😂❤️",w:1152,h:2048},{src:"album_mishpuha_hq50/00021822-PHOTO-2023-03-15-18-57-23.jpg",date:"2023-03-15",event:"אביב של מפגשים",speaker:"אוריה חדד",quote:"וואו, נראה שיהיה טעים בשבת",w:1536,h:2048},{src:"album_mishpuha_hq50/00022224-PHOTO-2023-06-02-07-10-34.jpg",date:"2023-06-02",event:"קיץ בתנועה",speaker:"Sapir Chen-Zion 🙃",quote:"מחר, רבע לשתיים בפדריק, חגיגה מוקדמת של יום הנישואין של ההורים ♥️",w:1152,h:2048},{src:"album_mishpuha_hq50/00022542-PHOTO-2023-07-20-17-11-14.jpg",date:"2023-07-19",event:"קיץ בתנועה",speaker:"Sapir Chen-Zion 🙃",quote:"יעקב פורק קניות. ספיר, למה הבאת שני פרחים לשבת 🙊",w:1537,h:2048},{src:"album_mishpuha_hq50/00022860-PHOTO-2023-09-06-17-41-43.jpg",date:"2023-09-05",event:"סתיו של זכרונות",speaker:"אור",quote:"ב\"ה יש לנו הרבה שמחות לחגוג... אז כולם מוזמנים אלינו לסוכה. תגיעו מתי שנח לכם...⚘️",w:1536,h:2048},{src:"album_mishpuha_hq50/00022944-PHOTO-2023-09-22-09-12-36.jpg",date:"2023-09-21",event:"סתיו של זכרונות",speaker:"אור",quote:"אבא ואמא, רוצים שישי הבא בבוקר לחגוג לכם יום נישואים בפעילות אצלכם בגינה (ערב סוכות) מתאים לכם?",w:2048,h:1536},{src:"album_mishpuha_hq50/00023181-PHOTO-2023-11-14-08-53-53.jpg",date:"2023-11-13",event:"סתיו של זכרונות",speaker:"אמא",quote:"הגיס המדובר (שהגיע לברית המילה של הבן שלו) זה אורי הבעל של שיר לזרוביץ",w:2000,h:1500},{src:"album_mishpuha_hq50/00023273-PHOTO-2023-12-07-17-30-26.jpg",date:"2023-12-06",event:"חורף משפחתי",speaker:"אור",quote:"אוריה היתה עם הילדים שלי גם כדי לאפשר לי ללמוד😍😍😍",w:2048,h:1536},{src:"album_mishpuha_hq50/00023289-PHOTO-2023-12-12-12-56-51.jpg",date:"2023-12-12",event:"חורף משפחתי",speaker:"אמא",quote:"מזל טוב לספיר שלנו. בוגרת בהצטיינות של תואר שני.",w:1536,h:2048},{src:"album_mishpuha_hq50/00023613-PHOTO-2024-02-21-18-17-55.jpg",date:"2024-02-21",event:"חורף משפחתי",speaker:"תומר לוי",quote:"בהצלחה לאמא בכנס היום. מאמינים בך",w:2000,h:1500},{src:"album_mishpuha_hq50/00023816-PHOTO-2024-04-05-13-17-25.jpg",date:"2024-04-01",event:"אביב של מפגשים",speaker:"תומר לוי",quote:"אבא של שבת",w:3000,h:4000},{src:"album_mishpuha_hq50/00024099-PHOTO-2024-06-23-17-54-00.jpg",date:"2024-06-20",event:"קיץ בתנועה",speaker:"תומר לוי",quote:"מזל טוב 💗 לעוד הרבה שנים בבריאות בנחת ובשמחה",w:1500,h:2000},{src:"album_mishpuha_hq50/00024131-PHOTO-2024-06-27-18-42-02.jpg",date:"2024-06-27",event:"קיץ בתנועה",speaker:"אמא",quote:"נהדר. שמחים לחגוג איתה שנה.",w:2048,h:1542},{src:"album_mishpuha_hq50/00024314-PHOTO-2024-08-15-08-33-27.jpg",date:"2024-08-15",event:"קיץ בתנועה",speaker:"אור",quote:"מבינה שיש צורך להזמין משקפי שמש לבנות ❤️",w:1536,h:2048},{src:"album_mishpuha_hq50/00024327-PHOTO-2024-08-16-15-22-14.jpg",date:"2024-08-16",event:"קיץ בתנועה",speaker:"אור",quote:"ואיזה כיף לו שהוא זוכה ליום כיף לבד ❤️",w:1500,h:2000},{src:"album_mishpuha_hq50/00024365-PHOTO-2024-08-22-11-58-42.jpg",date:"2024-08-22",event:"קיץ בתנועה",speaker:"אמא",quote:"כל הכבוד לאור- 5 קטן עלייך",w:2000,h:1500},{src:"album_mishpuha_hq50/00024789-PHOTO-2024-09-20-15-03-05.jpg",date:"2024-09-16",event:"סתיו של זכרונות",speaker:"אמא",quote:"כל הכבוד לספיר על הספורט. דוגמה ליעקב איך לרוץ אחרי הבנות כשיחזור שבוע הבא 🙂",w:1512,h:2016},{src:"album_mishpuha_hq50/00024836-PHOTO-2024-10-05-20-43-04.jpg",date:"2024-10-01",event:"סתיו של זכרונות",speaker:"אור",quote:"שבוע טוב❤️ יש גם קובץ דוקס של תיעוד או רק בסוף הטיול?",w:2048,h:1536},{src:"album_mishpuha_hq50/00024978-PHOTO-2024-10-28-20-04-07.jpg",date:"2024-10-27",event:"סתיו של זכרונות",speaker:"Sapir Chen-Zion 🙃",quote:"בצלע ההר? חשבתי שסגרו את המקום",w:1200,h:1600},{src:"album_mishpuha_hq50/00025359-PHOTO-2024-12-20-13-21-39.jpg",date:"2024-12-20",event:"חורף משפחתי",speaker:"אמא",quote:"שבוע טוב!!! בשעה טובה לגיא ושלי נולד בן🥳🥳❤️😘",w:2048,h:1366},{src:"album_mishpuha_hq50/00026230-PHOTO-2025-08-26-11-04-24.jpg",date:"2025-08-26",event:"קיץ בתנועה",speaker:"אמא",quote:"מזל טוב לקדם החמודה שנכנסה באפן רשמי היום לשנת ה terrible two. מעניין מה היה עד עכשיו? אוהבים אותך המון 💕",w:3000,h:4000},{src:"album_mishpuha_hq50/00026244-PHOTO-2025-08-27-07-40-47.jpg",date:"2025-08-27",event:"קיץ בתנועה",speaker:"אמא",quote:"מזל טוב לקדם החמודה שנכנסה באפן רשמי היום לשנת ה terrible two. מעניין מה היה עד עכשיו? אוהבים אותך המון 💕",w:3000,h:4000},{src:"album_mishpuha_hq50/00026295-PHOTO-2025-09-01-08-32-05.jpg",date:"2025-09-01",event:"סתיו של זכרונות",speaker:"Sapir Chen-Zion 🙃",quote:"איך כולם גדולים ומתוקים 😍",w:3000,h:4000},{src:"album_mishpuha_hq50/00026578-PHOTO-2025-10-03-10-12-48.jpg",date:"2025-10-02",event:"סתיו של זכרונות",speaker:"אמא",quote:"אנחנו בסדר. כפיר אבא ואני. כל הכבוד לדרי. אני התחלתי בעשר.",w:2048,h:1536},{src:"album_mishpuha_hq50/00026597-PHOTO-2025-10-06-17-47-09.jpg",date:"2025-10-06",event:"סתיו של זכרונות",speaker:"אמא",quote:"היום יום הולדת לאיתן החמוד והאהוב כל כך",w:3000,h:4000},{src:"album_mishpuha_hq50/00026703-PHOTO-2025-10-21-21-47-01.jpg",date:"2025-10-21",event:"סתיו של זכרונות",speaker:"אמא",quote:"בהצלחה לגלית שמתחילה ללמוד היום. סטודנטית חדשה במשפחה",w:4000,h:3000},{src:"album_mishpuha_hq50/00026753-PHOTO-2025-11-07-12-53-52.jpg",date:"2025-11-07",event:"סתיו של זכרונות",speaker:"תומר לוי",quote:"מזל טוב 🥳🥳🥳",w:3000,h:4000},{src:"album_mishpuha_hq50/00026834-PHOTO-2025-11-18-15-35-30.jpg",date:"2025-11-18",event:"סתיו של זכרונות",speaker:"אור",quote:"בעברית זה נקרא הבית על האשד",w:2048,h:1536},{src:"album_mishpuha_hq50/00026990-PHOTO-2025-12-04-18-07-35.jpg",date:"2025-12-04",event:"חורף משפחתי",speaker:"Sapir Chen-Zion 🙃",quote:"איזה יופי! כל הכבוד אורי ❤️❤️❤️",w:4000,h:3000},{src:"album_mishpuha_hq50/00027011-PHOTO-2025-12-10-07-23-13.jpg",date:"2025-12-10",event:"חורף משפחתי",speaker:"Sapir Chen-Zion 🙃",quote:"מזל טוב תבלי ❤️",w:3000,h:4000},{src:"album_mishpuha_hq50/00027028-PHOTO-2025-12-14-18-12-20.jpg",date:"2025-12-14",event:"חורף משפחתי",speaker:"אורן הירשהורן",quote:"ניסיתי להתקשר לאור לפני שבת, אם עדיין זמינים אשמח שהיא תענה",w:4128,h:2322},{src:"album_mishpuha_hq50/00027162-PHOTO-2026-01-08-21-10-37.jpg",date:"2026-01-08",event:"חורף משפחתי",speaker:"תומר לוי",quote:"סבתא רותי לא מרשה לי לחגוג יום הולדת",w:1200,h:1600},{src:"album_mishpuha_hq50/00027189-PHOTO-2026-01-13-08-01-05.jpg",date:"2026-01-12",event:"חורף משפחתי",speaker:"אמא",quote:"בהצלחה לתומר שיוצא היום למילואים לשמור על כולנו. שמור גם על עצמך 💙",w:1200,h:1600},{src:"album_mishpuha_hq50/00027236-PHOTO-2026-01-29-18-19-18.jpg",date:"2026-01-29",event:"חורף משפחתי",speaker:"אמא",quote:"כל הכבוד! הראשונה במשפחה שכל כך מוכשרת בספורט",w:3000,h:4000}];
+    const gallery=document.getElementById('gallery');
+    const lightbox=document.getElementById('lightbox');
+    const lbImg=document.getElementById('lbImg');
+    const lbMeta=document.getElementById('lbMeta');
+    const lbQuote=document.getElementById('lbQuote');
+
+    items.forEach((it)=>{
+      const card=document.createElement('article');
+      card.className='card bg-white rounded-2xl overflow-hidden shadow hover:shadow-lg transition cursor-zoom-in';
+      card.innerHTML=`
+        <img src="${it.src}" alt="${it.event}" loading="lazy" class="w-full h-auto object-cover" />
+        <div class="p-3">
+          <p class="text-xs text-amber-700 font-semibold">${it.date} | ${it.event}</p>
+          <p class="mt-2 text-sm bg-amber-50 rounded-xl p-3">${it.quote}</p>
+          <p class="mt-1 text-xs text-slate-500">— ${it.speaker}</p>
+        </div>`;
+      card.addEventListener('click',()=>{
+        lbImg.src=it.src;
+        lbMeta.textContent=`${it.date} | ${it.event} | ${it.speaker} | ${it.w}×${it.h}`;
+        lbQuote.textContent=it.quote;
+        lightbox.classList.remove('hidden');
+      });
+      gallery.appendChild(card);
+    });
+
+    const close=()=>lightbox.classList.add('hidden');
+    document.getElementById('closeLb').addEventListener('click',close);
+    lightbox.addEventListener('click',(e)=>{ if(e.target===lightbox) close(); });
+    document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') close(); });
+  </script>
+</body>
+</html>
