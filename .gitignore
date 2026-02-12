@@ -1,5 +1,6 @@
 *.jpg
 !album/*.jpg
+!album_mishpuha/*.jpg
 *.txt
 *.vcf
 *.pdf
