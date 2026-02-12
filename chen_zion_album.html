@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>משפחת חן-ציון | סיכום שנה 2025</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Secular+One&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Heebo', sans-serif;
+  background: #faf9f6;
+  color: #2d2d2d;
+  overflow-x: hidden;
+}
+
+.font-display { font-family: 'Secular One', sans-serif; }
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+  animation: heroFloat 20s ease-in-out infinite;
+}
+@keyframes heroFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(30px, -30px) rotate(5deg); }
+  66% { transform: translate(-20px, 20px) rotate(-3deg); }
+}
+.hero-content {
+  text-align: center;
+  z-index: 1;
+  padding: 2rem;
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  color: white;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  margin-bottom: 0.5rem;
+}
+.hero .subtitle {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: rgba(255,255,255,0.9);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+}
+.hero .year-badge {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.75rem 2.5rem;
+  border: 2px solid rgba(255,255,255,0.6);
+  border-radius: 50px;
+  color: white;
+  font-size: 1.1rem;
+  letter-spacing: 0.2em;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.1);
+}
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+/* Timeline */
+.timeline-section {
+  padding: 4rem 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  right: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, #667eea, #764ba2, #667eea);
+  border-radius: 3px;
+}
+@media (max-width: 768px) {
+  .timeline::before { right: 1.5rem; }
+}
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 1rem 2.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.timeline-item:nth-child(odd) {
+  margin-right: 50%;
+  text-align: left;
+}
+.timeline-item:nth-child(even) {
+  margin-right: 0;
+  text-align: right;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border: 3px solid #764ba2;
+  border-radius: 50%;
+  top: 1.5rem;
+  z-index: 2;
+}
+.timeline-item:nth-child(odd)::before { left: -8px; }
+.timeline-item:nth-child(even)::before { right: -8px; }
+@media (max-width: 768px) {
+  .timeline-item {
+    width: calc(100% - 3rem);
+    margin-right: 3rem !important;
+    text-align: right !important;
+    padding: 1rem 0 1rem 1rem;
+  }
+  .timeline-item::before { right: -2.35rem !important; left: auto !important; }
+}
+.timeline-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.timeline-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+.timeline-date {
+  font-size: 0.85rem;
+  color: #764ba2;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.timeline-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #1a1a2e;
+}
+.timeline-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* Speech Bubble */
+.speech-bubble {
+  position: relative;
+  background: linear-gradient(135deg, #e8e1f5, #f3e8ff);
+  border-radius: 16px;
+  padding: 1rem 1.25rem;
+  margin-top: 0.75rem;
+  font-style: italic;
+  color: #4a3670;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: 20px;
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, #e8e1f5, #f3e8ff);
+  transform: rotate(45deg);
+}
+.speech-bubble .speaker {
+  display: block;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #764ba2;
+  margin-top: 0.5rem;
+}
+
+/* Gallery Section */
+.gallery-section {
+  padding: 4rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-title {
+  text-align: center;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: #1a1a2e;
+  margin-bottom: 0.5rem;
+}
+.section-subtitle {
+  text-align: center;
+  color: #888;
+  font-size: 1rem;
+  margin-bottom: 3rem;
+}
+
+/* Masonry Grid */
+.masonry {
+  columns: 3;
+  column-gap: 1rem;
+  padding: 0 0.5rem;
+}
+@media (max-width: 1024px) { .masonry { columns: 2; } }
+@media (max-width: 640px) { .masonry { columns: 1; max-width: 500px; margin: 0 auto; } }
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.masonry-item:hover { transform: scale(1.02); }
+.masonry-item img {
+  width: 100%;
+  display: block;
+  transition: filter 0.3s ease;
+}
+.masonry-item:hover img { filter: brightness(0.9); }
+.masonry-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color: white;
+  padding: 2rem 1rem 1rem;
+  font-size: 0.85rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.masonry-item:hover .masonry-caption { opacity: 1; }
+
+/* Event Group Header */
+.event-header {
+  text-align: center;
+  margin: 3rem 0 1.5rem;
+  position: relative;
+}
+.event-header::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #ddd, transparent);
+}
+.event-header span {
+  position: relative;
+  background: #faf9f6;
+  padding: 0 1.5rem;
+  color: #764ba2;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.lightbox.active {
+  display: flex;
+  opacity: 1;
+}
+.lightbox img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 60px rgba(0,0,0,0.5);
+}
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  z-index: 1001;
+}
+.lightbox-close:hover { background: rgba(255,255,255,0.3); }
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+.lightbox-nav:hover { background: rgba(255,255,255,0.3); }
+.lightbox-prev { right: 1.5rem; }
+.lightbox-next { left: 1.5rem; }
+.lightbox-caption {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.8);
+  font-size: 0.95rem;
+  text-align: center;
+  max-width: 600px;
+  padding: 0.75rem 1.5rem;
+  background: rgba(0,0,0,0.5);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+/* Footer */
+.album-footer {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+.album-footer h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 1rem;
+}
+.album-footer p {
+  opacity: 0.8;
+  font-size: 1rem;
+}
+
+/* Scroll animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="font-display">משפחת חן-ציון</h1>
+    <p class="subtitle">יואב, אתי והמשפחה</p>
+    <div class="year-badge">סיכום שנה 2025</div>
+  </div>
+  <div class="scroll-indicator">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2">
+      <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+    </svg>
+  </div>
+</section>
+
+<!-- Section 1: יונתן בחרמון -->
+<section class="gallery-section">
+  <h2 class="section-title font-display fade-in">יונתן בחרמון ❄️</h2>
+  <p class="section-subtitle fade-in">ינואר 2025 | שירות בחרמון</p>
+
+  <div class="masonry">
+    <div class="masonry-item" onclick="openLightbox(0)">
+      <img src="album_chen_zion/00007501-PHOTO-2025-01-01-08-03-01.jpg" alt="שלג בחרמון" loading="lazy">
+      <div class="masonry-caption">נפל להם קצת לבן על החרמון</div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(1)">
+      <img src="album_chen_zion/00007502-PHOTO-2025-01-01-08-57-42.jpg" alt="ערפל בחרמון" loading="lazy">
+      <div class="masonry-caption">אנחנו במיסטבורן</div>
+    </div>
+  </div>
+
+  <div style="max-width: 700px; margin: 1.5rem auto 0;">
+    <div class="speech-bubble">
+      "ידעתי שהיית בלבנון ובסוריה. לא ידעתי שהיית גם בשוויץ?!"
+      <span class="speaker">יואב</span>
+    </div>
+  </div>
+</section>
+
+<!-- Section 2: דובאי -->
+<section class="gallery-section" style="background: linear-gradient(to bottom, #faf9f6, #f0f4ff, #faf9f6); padding-top: 3rem; padding-bottom: 3rem;">
+  <h2 class="section-title font-display fade-in">דובאי 🇦🇪</h2>
+  <p class="section-subtitle fade-in">ינואר 2025 | יעקב וספיר בדובאי</p>
+
+  <div class="masonry">
+    <div class="masonry-item" onclick="openLightbox(2)">
+      <img src="album_chen_zion/00007530-PHOTO-2025-01-12-06-48-09.jpg" alt="דרישת שלום מדובאי" loading="lazy">
+      <div class="masonry-caption">דרישת שלום מדובאי</div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(3)">
+      <img src="album_chen_zion/00007545-PHOTO-2025-01-13-10-15-56.jpg" alt="יעקב בדובאי" loading="lazy">
+      <div class="masonry-caption">יעקב מתחבר לרוח המקום</div>
+    </div>
+  </div>
+
+  <div style="max-width: 700px; margin: 1.5rem auto 0;">
+    <div class="speech-bubble">
+      "כמה שתנסה להיראות, זה לא אמין 🤣"
+      <span class="speaker">שירה</span>
+    </div>
+  </div>
+</section>
+
+<!-- Section 3: Timeline -->
+<section class="timeline-section">
+  <h2 class="section-title font-display fade-in">ציר הזמן שלנו</h2>
+  <p class="section-subtitle fade-in">הרגעים הגדולים והקטנים של השנה</p>
+
+  <div class="timeline">
+
+    <!-- 1. אירוסין שמריה ואורית -->
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <div class="timeline-date">פברואר 2025</div>
+        <div class="timeline-title">אירוסין! שמריה ואורית 💍</div>
+        <div class="timeline-text">
+          שמריה ואורית מתארסים! כל המשפחה חוגגת.
+        </div>
+        <div class="speech-bubble">
+          "שמחנו על כל אחד ואחת מכם שבאתם והייתם איתנו. אוהבים את כולכם"
+          <span class="speaker">שמריה ואורית</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. מיקה -->
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <div class="timeline-date">פברואר 2025</div>
+        <div class="timeline-title">תכירו את מיקה 🐕‍🦺</div>
+        <div class="timeline-text">
+          יעקב וספיר מאמצים כלבת נחייה לחודש.
+        </div>
+        <div class="speech-bubble">
+          "ראיתי מיקה, דמיינתי איזו כלבלבה קטנה 😅"
+          <span class="speaker">שירה</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. יונתן מצטיין -->
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <div class="timeline-date">פברואר 2025</div>
+        <div class="timeline-title">יונתן מצטיין! ⭐</div>
+        <div class="timeline-text">
+          יונתן קיבל כצ'ופר מהמג"ד — אחד מחמישה חיילים מכל הגדוד!
+        </div>
+        <div class="speech-bubble">
+          "כל הכבוד!"
+          <span class="speaker">כל המשפחה</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. אבא מורה מצטיין -->
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <div class="timeline-date">אפריל 2025</div>
+        <div class="timeline-title">אבא מורה מצטיין! 🏆</div>
+        <div class="timeline-text">
+          יואב נבחר למורה מצטיין בהילה חבל מודיעין.
+        </div>
+        <div class="speech-bubble">
+          "איזה יופי!! אלוף אבא! מרגש!"
+          <span class="speaker">שירה</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. AI מכיר את סבא עובדיה -->
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <div class="timeline-date">אפריל 2025</div>
+        <div class="timeline-title">AI מכיר את סבא עובדיה 🤖</div>
+        <div class="timeline-text">
+          אריאל שאל בינה מלאכותית מי זה עובדיה חן ציון — והיא ידעה!
+        </div>
+        <div class="speech-bubble">
+          "הוא כל הזמן מדבר איתי על הארכיון הציוני"
+          <span class="speaker">אריאל</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. 40 שנה לאבא ואמא -->
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <div class="timeline-date">יוני 2025</div>
+        <div class="timeline-title">40 שנה לאבא ואמא! ❤️</div>
+        <div class="timeline-text">
+          כל המשפחה חוגגת לאבא ואמא ארבעים שנות נישואין בווילה בגבעת זאב.
+        </div>
+        <div class="speech-bubble">
+          "נהנינו מאוד להיות ביחד כל המשפחה. אפילו יונתן היה איתנו בברכה היפה שכתב"
+          <span class="speaker">אתי</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. חזרה ללימודים -->
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <div class="timeline-date">ספטמבר 2025</div>
+        <div class="timeline-title">חזרה ללימודים 📚</div>
+        <div class="timeline-text">
+          כל הילדים חוזרים — רותי, נגה, מאיר, אליה, עדי, ומעיין.
+        </div>
+        <div class="speech-bubble">
+          "מתוקות שבעולם"
+          <span class="speaker">יואב</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. הבכור ובן הזקונים -->
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <div class="timeline-date">ספטמבר 2025</div>
+        <div class="timeline-title">הבכור ובן הזקונים נפגשים בצבא 🪖</div>
+        <div class="timeline-text">
+          יעקב ויונתן נפגשים בבסיס! הבכור ובן הזקונים של המשפחה.
+        </div>
+        <div class="speech-bubble">
+          "איזו תמונה יפה ומרגשת. הבכור ובן הזקונים נפגשים בצבא 🩷"
+          <span class="speaker">שירה</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. נדב משתחרר -->
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <div class="timeline-date">נובמבר 2025</div>
+        <div class="timeline-title">נדב משתחרר! 🎖️</div>
+        <div class="timeline-text">
+          נדב משתחרר מצה"ל ומתחיל לימודים באוניברסיטה העברית.
+        </div>
+        <div class="speech-bubble">
+          "גאווה לכולנו!"
+          <span class="speaker">יואב</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. ביקור בבית העדות -->
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <div class="timeline-date">דצמבר 2025</div>
+        <div class="timeline-title">ביקור בבית העדות, ניר גלים 🏚️</div>
+        <div class="timeline-text">
+          שירה ומעיין מבקרות בבית העדות בניר גלים ורואות את בית סבא וסבתא.
+        </div>
+        <div class="speech-bubble">
+          "משמח לראות את שרשרת הדורות ממשיכה"
+          <span class="speaker">יואב</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11. תעודה ראשונה לרותי -->
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <div class="timeline-date">פברואר 2026</div>
+        <div class="timeline-title">תעודה ראשונה לרותי! 📝</div>
+        <div class="timeline-text">
+          רותי מקבלת תעודה ראשונה בכיתה א'!
+        </div>
+        <div class="speech-bubble">
+          "מתוקה שבעולם"
+          <span class="speaker">יואב</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Section 4: פורים -->
+<section class="gallery-section" style="background: linear-gradient(to bottom, #faf9f6, #fdf2f8, #faf9f6); padding-top: 3rem; padding-bottom: 3rem;">
+  <h2 class="section-title font-display fade-in">פורים שמח! 🎭</h2>
+  <p class="section-subtitle fade-in">מרץ 2025 | תחפושות ושמחה</p>
+
+  <div class="masonry">
+    <div class="masonry-item" onclick="openLightbox(4)">
+      <img src="album_chen_zion/00007805-PHOTO-2025-03-12-07-53-36.jpg" alt="רותי ונגה בפורים" loading="lazy">
+      <div class="masonry-caption">רותי ונגה — פורים שמח!</div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(5)">
+      <img src="album_chen_zion/00007807-PHOTO-2025-03-12-07-55-35.jpg" alt="תחפושות פורים" loading="lazy">
+      <div class="masonry-caption">מהממות!</div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(6)">
+      <img src="album_chen_zion/00007821-PHOTO-2025-03-12-08-54-08.jpg" alt="ילדים בפורים" loading="lazy">
+      <div class="masonry-caption">מתוקים בפורים</div>
+    </div>
+  </div>
+
+  <div style="max-width: 700px; margin: 1.5rem auto 0;">
+    <div class="speech-bubble">
+      "עקביות זה חשוב 😂 — רותי לפני שנתיים"
+      <span class="speaker">ספיר</span>
+    </div>
+  </div>
+</section>
+
+<!-- Section 5: החתונה של שמריה ואורית -->
+<section class="gallery-section">
+  <h2 class="section-title font-display fade-in">החתונה של שמריה ואורית! 💒</h2>
+  <p class="section-subtitle fade-in">מרץ 2025 | מזל טוב!</p>
+
+  <div class="masonry">
+    <div class="masonry-item" onclick="openLightbox(7)">
+      <img src="album_chen_zion/00007885-PHOTO-2025-03-28-15-04-30.jpg" alt="מאיר ואליה מתרגשים לחתונה" loading="lazy">
+      <div class="masonry-caption">מחכים כבר לרקוד יחד!</div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(8)">
+      <img src="album_chen_zion/00007897-PHOTO-2025-03-31-10-43-59.jpg" alt="הזמנה לחתונה" loading="lazy">
+      <div class="masonry-caption">מתרגשים ומצפים</div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 6: אריאל ונדב באמריקה וקנדה -->
+<section class="gallery-section" style="background: linear-gradient(to bottom, #faf9f6, #f0fdf4, #faf9f6); padding-top: 3rem; padding-bottom: 3rem;">
+  <h2 class="section-title font-display fade-in">אריאל ונדב באמריקה וקנדה 🇺🇸🇨🇦</h2>
+  <p class="section-subtitle fade-in">אוגוסט–ספטמבר 2025 | טיול אחים</p>
+
+  <div class="masonry">
+    <div class="masonry-item" onclick="openLightbox(9)">
+      <img src="album_chen_zion/00008441-PHOTO-2025-08-17-06-22-40.jpg" alt="נדב בטרקלין שדה התעופה" loading="lazy">
+      <div class="masonry-caption">נדב בבחירה קולינרית מקורית בטרקלין</div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(10)">
+      <img src="album_chen_zion/00008672-PHOTO-2025-08-22-02-19-27.jpg" alt="פסגת הר לפאייט" loading="lazy">
+      <div class="masonry-caption">פסגת הר Lafayette — ללא פילטר</div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(11)">
+      <img src="album_chen_zion/00008758-PHOTO-2025-08-25-01-25-15.jpg" alt="מפלים בקנדה" loading="lazy">
+      <div class="masonry-caption">המפל הקודם לא היה מספיק מרשים</div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(12)">
+      <img src="album_chen_zion/00008890-PHOTO-2025-08-27-01-09-11.jpg" alt="הפרלמנט הקנדי" loading="lazy">
+      <div class="masonry-caption">סיור בפרלמנט הקנדי</div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(13)">
+      <img src="album_chen_zion/00009110-PHOTO-2025-09-05-18-17-45.jpg" alt="הצגת Wicked" loading="lazy">
+      <div class="masonry-caption">הצגה Wicked מרשעת — שבת שלום מהתפוח הגדול</div>
+    </div>
+  </div>
+
+  <div style="max-width: 700px; margin: 1.5rem auto 0;">
+    <div class="speech-bubble">
+      "זה נראה כאילו אתם המטיילים היחידים באמריקה... אין עוד מטיילים?"
+      <span class="speaker">יואב</span>
+    </div>
+  </div>
+</section>
+
+<!-- Section 7: יונתן בשירות -->
+<section class="gallery-section">
+  <h2 class="section-title font-display fade-in">יונתן בשירות 🪖</h2>
+  <p class="section-subtitle fade-in">2025 | שירות צבאי</p>
+
+  <div class="masonry">
+    <div class="masonry-item" onclick="openLightbox(14)">
+      <img src="album_chen_zion/00008848-PHOTO-2025-08-26-13-36-24.jpg" alt="ארוחת בוקר בשטח" loading="lazy">
+      <div class="masonry-caption">ארוחת בוקר בחול</div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(15)">
+      <img src="album_chen_zion/00008898-PHOTO-2025-08-27-10-37-50.jpg" alt="עמדה בקו עזה" loading="lazy">
+      <div class="masonry-caption">#קו עזה</div>
+    </div>
+  </div>
+
+  <div style="max-width: 700px; margin: 1.5rem auto 0;">
+    <div class="speech-bubble">
+      "אל תדאג, אנחנו יודעים שבדרך כלל יש גם מיגלשה וקרוסלה"
+      <span class="speaker">יואב</span>
+    </div>
+    <div class="speech-bubble" style="margin-top: 0.5rem;">
+      "יותר פשוט מטנק. סתם"
+      <span class="speaker">יונתן, על בקרת החללית אפולו</span>
+    </div>
+  </div>
+</section>
+
+<!-- Section 8: חזרה ללימודים -->
+<section class="gallery-section" style="background: linear-gradient(to bottom, #faf9f6, #fef9c3, #faf9f6); padding-top: 3rem; padding-bottom: 3rem;">
+  <h2 class="section-title font-display fade-in">חזרה ללימודים 📚</h2>
+  <p class="section-subtitle fade-in">ספטמבר 2025 | שנה חדשה מתחילה</p>
+
+  <div class="masonry">
+    <div class="masonry-item" onclick="openLightbox(16)">
+      <img src="album_chen_zion/00009032-PHOTO-2025-09-01-08-16-40.jpg" alt="רותי ונגה ביום הראשון" loading="lazy">
+      <div class="masonry-caption">רותי ונגה — יום ראשון!</div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(17)">
+      <img src="album_chen_zion/00009033-PHOTO-2025-09-01-08-16-40.jpg" alt="יום ראשון בלימודים" loading="lazy">
+      <div class="masonry-caption">מוכנות לשנה חדשה</div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(18)">
+      <img src="album_chen_zion/00009039-PHOTO-2025-09-01-08-49-36.jpg" alt="מאיר ואליה" loading="lazy">
+      <div class="masonry-caption">שנה טובה ומתוקה!</div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 9: חנוכה -->
+<section class="gallery-section">
+  <h2 class="section-title font-display fade-in">חנוכה 2025 🕎</h2>
+  <p class="section-subtitle fade-in">דצמבר 2025 | אור וחום משפחתי</p>
+
+  <div class="masonry">
+    <div class="masonry-item" onclick="openLightbox(19)">
+      <img src="album_chen_zion/00009637-PHOTO-2025-12-14-17-00-46.jpg" alt="חנוכייה בצבא" loading="lazy">
+      <div class="masonry-caption">חנוכה שמח מהצבא!</div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(20)">
+      <img src="album_chen_zion/00009687-PHOTO-2025-12-21-21-57-04.jpg" alt="הצגה של נדב" loading="lazy">
+      <div class="masonry-caption">הצגה חנוכה #1 — דוד נדב</div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(21)">
+      <img src="album_chen_zion/00009657-PHOTO-2025-12-18-13-54-03.jpg" alt="חנוכה משפחתי" loading="lazy">
+      <div class="masonry-caption">כל המשפחה ביחד</div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(22)">
+      <img src="album_chen_zion/00009665-PHOTO-2025-12-18-13-54-56.jpg" alt="תמונה משפחתית חנוכה" loading="lazy">
+      <div class="masonry-caption">תודה לאבא ואמא על הארגון</div>
+    </div>
+  </div>
+
+  <div style="max-width: 700px; margin: 1.5rem auto 0;">
+    <div class="speech-bubble">
+      "אשרינו שכך נראה חנוכה בצה"ל! צה"ל הוא המשך ישיר של המכבים"
+      <span class="speaker">יואב</span>
+    </div>
+    <div class="speech-bubble" style="margin-top: 0.5rem;">
+      "אניייי מתגעגע! שנה הבאה בעזרת ה'"
+      <span class="speaker">יונתן</span>
+    </div>
+    <div class="speech-bubble" style="margin-top: 0.5rem;">
+      "אין דוד כזה בעולם!"
+      <span class="speaker">יואב, על נדב</span>
+    </div>
+  </div>
+</section>
+
+<!-- Section 10: אברהם במילואים -->
+<section class="gallery-section" style="background: linear-gradient(to bottom, #faf9f6, #fef2f2, #faf9f6); padding-top: 3rem; padding-bottom: 3rem;">
+  <h2 class="section-title font-display fade-in">אברהם במילואים 💪</h2>
+  <p class="section-subtitle fade-in">דצמבר 2025 | גדוד מילואים 8239</p>
+
+  <div style="max-width: 600px; margin: 0 auto;">
+    <div class="masonry-item" onclick="openLightbox(23)">
+      <img src="album_chen_zion/00009616-PHOTO-2025-12-11-20-47-54.jpg" alt="אברהם בעזה" loading="lazy">
+      <div class="masonry-caption">עזה. גדוד מילואים 8239</div>
+    </div>
+  </div>
+
+  <div style="max-width: 700px; margin: 1.5rem auto 0;">
+    <div class="speech-bubble">
+      "שיגעון. גיבורים. כל הכבוד"
+      <span class="speaker">אתי</span>
+    </div>
+  </div>
+</section>
+
+<!-- Section 11: רגעים מהשנה -->
+<section class="gallery-section">
+  <h2 class="section-title font-display fade-in">רגעים מהשנה</h2>
+  <p class="section-subtitle fade-in">2025–2026 | רגעים שנשמור לתמיד</p>
+
+  <div class="masonry">
+    <div class="masonry-item" onclick="openLightbox(24)">
+      <img src="album_chen_zion/00009579-PHOTO-2025-12-07-21-52-30.jpg" alt="בית העדות ניר גלים" loading="lazy">
+      <div class="masonry-caption">שירה ומעיין בבית העדות, ניר גלים</div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(25)">
+      <img src="album_chen_zion/00009280-PHOTO-2025-09-15-16-56-25.jpg" alt="יעקב ויונתן בצבא" loading="lazy">
+      <div class="masonry-caption">הבכור ובן הזקונים נפגשים!</div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(26)">
+      <img src="album_chen_zion/00009880-PHOTO-2026-02-06-11-58-57.jpg" alt="תעודה ראשונה לרותי" loading="lazy">
+      <div class="masonry-caption">תעודה ראשונה לרותי!</div>
+    </div>
+    <div class="masonry-item" onclick="openLightbox(27)">
+      <img src="album_chen_zion/00007664-PHOTO-2025-02-08-20-14-10.jpg" alt="מיקה הכלבה" loading="lazy">
+      <div class="masonry-caption">תכירו את מיקה!</div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<section class="album-footer">
+  <h2 class="font-display">שנה של אחדות, גבורה ואהבה 💜</h2>
+  <p style="margin-top: 0.5rem;">יואב, אתי, שמריה, אריאל, אברהם, נדב, יונתן, שירה, יעקב... וכל המשפחה</p>
+  <p style="margin-top: 2rem; opacity: 0.5; font-size: 0.8rem;">אלבום דיגיטלי | משפחת חן-ציון 2025</p>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">&#10005;</button>
+  <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(event, -1)">&lsaquo;</button>
+  <img id="lightbox-img" src="" alt="">
+  <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(event, 1)">&rsaquo;</button>
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<script>
+// Lightbox — all photos
+const photos = [
+  // Section 1: יונתן בחרמון (0-1)
+  { src: 'album_chen_zion/00007501-PHOTO-2025-01-01-08-03-01.jpg', caption: 'נפל להם קצת לבן על החרמון' },
+  { src: 'album_chen_zion/00007502-PHOTO-2025-01-01-08-57-42.jpg', caption: 'אנחנו במיסטבורן' },
+  // Section 2: דובאי (2-3)
+  { src: 'album_chen_zion/00007530-PHOTO-2025-01-12-06-48-09.jpg', caption: 'דרישת שלום מדובאי' },
+  { src: 'album_chen_zion/00007545-PHOTO-2025-01-13-10-15-56.jpg', caption: 'יעקב מתחבר לרוח המקום' },
+  // Section 4: פורים (4-6)
+  { src: 'album_chen_zion/00007805-PHOTO-2025-03-12-07-53-36.jpg', caption: 'רותי ונגה — פורים שמח!' },
+  { src: 'album_chen_zion/00007807-PHOTO-2025-03-12-07-55-35.jpg', caption: 'מהממות!' },
+  { src: 'album_chen_zion/00007821-PHOTO-2025-03-12-08-54-08.jpg', caption: 'מתוקים בפורים' },
+  // Section 5: חתונה (7-8)
+  { src: 'album_chen_zion/00007885-PHOTO-2025-03-28-15-04-30.jpg', caption: 'מחכים כבר לרקוד יחד!' },
+  { src: 'album_chen_zion/00007897-PHOTO-2025-03-31-10-43-59.jpg', caption: 'מתרגשים ומצפים' },
+  // Section 6: אמריקה וקנדה (9-13)
+  { src: 'album_chen_zion/00008441-PHOTO-2025-08-17-06-22-40.jpg', caption: 'נדב בבחירה קולינרית מקורית בטרקלין' },
+  { src: 'album_chen_zion/00008672-PHOTO-2025-08-22-02-19-27.jpg', caption: 'פסגת הר Lafayette — ללא פילטר' },
+  { src: 'album_chen_zion/00008758-PHOTO-2025-08-25-01-25-15.jpg', caption: 'המפל הקודם לא היה מספיק מרשים' },
+  { src: 'album_chen_zion/00008890-PHOTO-2025-08-27-01-09-11.jpg', caption: 'סיור בפרלמנט הקנדי' },
+  { src: 'album_chen_zion/00009110-PHOTO-2025-09-05-18-17-45.jpg', caption: 'הצגה Wicked מרשעת — שבת שלום מהתפוח הגדול' },
+  // Section 7: יונתן בשירות (14-15)
+  { src: 'album_chen_zion/00008848-PHOTO-2025-08-26-13-36-24.jpg', caption: 'ארוחת בוקר בחול' },
+  { src: 'album_chen_zion/00008898-PHOTO-2025-08-27-10-37-50.jpg', caption: '#קו עזה' },
+  // Section 8: חזרה ללימודים (16-18)
+  { src: 'album_chen_zion/00009032-PHOTO-2025-09-01-08-16-40.jpg', caption: 'רותי ונגה — יום ראשון!' },
+  { src: 'album_chen_zion/00009033-PHOTO-2025-09-01-08-16-40.jpg', caption: 'מוכנות לשנה חדשה' },
+  { src: 'album_chen_zion/00009039-PHOTO-2025-09-01-08-49-36.jpg', caption: 'שנה טובה ומתוקה!' },
+  // Section 9: חנוכה (19-22)
+  { src: 'album_chen_zion/00009637-PHOTO-2025-12-14-17-00-46.jpg', caption: 'חנוכה שמח מהצבא!' },
+  { src: 'album_chen_zion/00009687-PHOTO-2025-12-21-21-57-04.jpg', caption: 'הצגה חנוכה #1 — דוד נדב' },
+  { src: 'album_chen_zion/00009657-PHOTO-2025-12-18-13-54-03.jpg', caption: 'כל המשפחה ביחד' },
+  { src: 'album_chen_zion/00009665-PHOTO-2025-12-18-13-54-56.jpg', caption: 'תודה לאבא ואמא על הארגון' },
+  // Section 10: אברהם במילואים (23)
+  { src: 'album_chen_zion/00009616-PHOTO-2025-12-11-20-47-54.jpg', caption: 'עזה. גדוד מילואים 8239' },
+  // Section 11: רגעים מהשנה (24-27)
+  { src: 'album_chen_zion/00009579-PHOTO-2025-12-07-21-52-30.jpg', caption: 'שירה ומעיין בבית העדות, ניר גלים' },
+  { src: 'album_chen_zion/00009280-PHOTO-2025-09-15-16-56-25.jpg', caption: 'הבכור ובן הזקונים נפגשים!' },
+  { src: 'album_chen_zion/00009880-PHOTO-2026-02-06-11-58-57.jpg', caption: 'תעודה ראשונה לרותי!' },
+  { src: 'album_chen_zion/00007664-PHOTO-2025-02-08-20-14-10.jpg', caption: 'תכירו את מיקה!' },
+];
+
+let currentPhoto = 0;
+
+function openLightbox(index) {
+  currentPhoto = index;
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lightbox-img').src = photos[index].src;
+  document.getElementById('lightbox-caption').textContent = photos[index].caption;
+  lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(e) {
+  if (e.target.classList.contains('lightbox') || e.target.classList.contains('lightbox-close')) {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+function navigateLightbox(e, dir) {
+  e.stopPropagation();
+  currentPhoto = (currentPhoto + dir + photos.length) % photos.length;
+  document.getElementById('lightbox-img').src = photos[currentPhoto].src;
+  document.getElementById('lightbox-caption').textContent = photos[currentPhoto].caption;
+}
+
+document.addEventListener('keydown', (e) => {
+  const lb = document.getElementById('lightbox');
+  if (!lb.classList.contains('active')) return;
+  if (e.key === 'Escape') { lb.classList.remove('active'); document.body.style.overflow = ''; }
+  if (e.key === 'ArrowRight') navigateLightbox(e, -1);
+  if (e.key === 'ArrowLeft') navigateLightbox(e, 1);
+});
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.fade-in, .timeline-item').forEach(el => observer.observe(el));
+
+// Smooth scroll
+document.querySelector('.scroll-indicator')?.addEventListener('click', () => {
+  document.querySelector('.gallery-section')?.scrollIntoView({ behavior: 'smooth' });
+});
+</script>
+
+</body>
+</html>

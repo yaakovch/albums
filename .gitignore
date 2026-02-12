@@ -1,6 +1,7 @@
 *.jpg
 !album/*.jpg
 !album_mishpuha/*.jpg
+!album_chen_zion/*.jpg
 *.txt
 *.vcf
 *.pdf
