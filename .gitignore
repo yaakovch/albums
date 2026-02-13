@@ -5,6 +5,7 @@
 !album_mishpuha_mega/*.jpg
 !album_mishpuha_hq50/*.jpg
 !album_mishpuha_levy/*.jpg
+!album_ariel/*.jpg
 *.txt
 *.vcf
 *.pdf

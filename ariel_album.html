@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>אריאל | סיכום שנה 2025</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Secular+One&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Heebo', sans-serif;
+  background: #faf9f6;
+  color: #2d2d2d;
+  overflow-x: hidden;
+}
+
+.font-display { font-family: 'Secular One', sans-serif; }
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #48c9b0 0%, #17a2b8 50%, #1a5276 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+  animation: heroFloat 20s ease-in-out infinite;
+}
+@keyframes heroFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(30px, -30px) rotate(5deg); }
+  66% { transform: translate(-20px, 20px) rotate(-3deg); }
+}
+.hero-content {
+  text-align: center;
+  z-index: 1;
+  padding: 2rem;
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  color: white;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  margin-bottom: 0.5rem;
+}
+.hero .subtitle {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: rgba(255,255,255,0.9);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+}
+.hero .year-badge {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.75rem 2.5rem;
+  border: 2px solid rgba(255,255,255,0.6);
+  border-radius: 50px;
+  color: white;
+  font-size: 1.1rem;
+  letter-spacing: 0.2em;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.1);
+}
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+/* Timeline */
+.timeline-section {
+  padding: 4rem 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  right: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, #48c9b0, #1a5276);
+  transform: translateX(50%);
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  right: 50%;
+  top: 1.5rem;
+  width: 16px;
+  height: 16px;
+  background: #17a2b8;
+  border: 3px solid white;
+  border-radius: 50%;
+  transform: translateX(50%);
+  z-index: 1;
+  box-shadow: 0 0 0 4px rgba(23,162,184,0.2);
+}
+.timeline-content {
+  width: 44%;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.timeline-content:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+.timeline-item:nth-child(odd) .timeline-content {
+  margin-right: auto;
+  margin-left: 56%;
+}
+.timeline-item:nth-child(even) .timeline-content {
+  margin-left: auto;
+  margin-right: 56%;
+}
+.timeline-date {
+  font-size: 0.85rem;
+  color: #17a2b8;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.timeline-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: #1a5276;
+}
+.timeline-content p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+.timeline-content img {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 0.75rem;
+  cursor: pointer;
+}
+.timeline-item.birthday-special .timeline-content {
+  border: 2px solid #48c9b0;
+  background: linear-gradient(135deg, rgba(72,201,176,0.05) 0%, rgba(23,162,184,0.05) 100%);
+}
+
+/* Gallery */
+.gallery-section {
+  padding: 4rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.gallery-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #1a5276;
+  margin-bottom: 2rem;
+}
+.masonry {
+  columns: 3;
+  column-gap: 1rem;
+}
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+.masonry-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.masonry-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.masonry-item:hover img {
+  transform: scale(1.03);
+}
+.masonry-item .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 1rem 1rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color: white;
+  font-size: 0.85rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.masonry-item:hover .caption {
+  opacity: 1;
+}
+
+/* Speech Bubbles */
+.quote-section {
+  padding: 3rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.speech-bubble {
+  position: relative;
+  background: #e0f7f5;
+  border-radius: 20px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 80%;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.5s ease;
+}
+.speech-bubble.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.speech-bubble.right {
+  margin-right: auto;
+  background: #d4efdf;
+  transform: translateX(20px);
+}
+.speech-bubble.right.visible {
+  transform: translateX(0);
+}
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 20px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #e0f7f5;
+}
+.speech-bubble.right::after {
+  right: auto;
+  left: 20px;
+  border-top-color: #d4efdf;
+}
+.speech-bubble .author {
+  font-size: 0.8rem;
+  color: #17a2b8;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.speech-bubble .text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.lightbox.active {
+  display: flex;
+}
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 8px;
+  object-fit: contain;
+}
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  backdrop-filter: blur(5px);
+  transition: background 0.3s;
+}
+.lightbox-nav:hover {
+  background: rgba(255,255,255,0.3);
+}
+.lightbox-prev { left: 1rem; }
+.lightbox-next { right: 1rem; }
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.lightbox-caption {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  background: rgba(0,0,0,0.5);
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  max-width: 80vw;
+}
+
+/* Intro */
+.intro-section {
+  padding: 4rem 1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+.intro-section p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* Closing Quote */
+.closing-quote {
+  padding: 4rem 1rem;
+  text-align: center;
+  background: linear-gradient(135deg, #48c9b0 0%, #17a2b8 50%, #1a5276 100%);
+  color: white;
+}
+.closing-quote blockquote {
+  font-size: clamp(1.3rem, 4vw, 2rem);
+  font-weight: 300;
+  max-width: 700px;
+  margin: 0 auto 1rem;
+  line-height: 1.6;
+}
+.closing-quote cite {
+  font-size: 1rem;
+  opacity: 0.8;
+  font-style: normal;
+}
+
+/* Footer */
+footer {
+  padding: 2rem;
+  text-align: center;
+  background: #1a5276;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timeline::before { right: 1.5rem; transform: none; }
+  .timeline-item::before { right: 1.5rem; transform: none; }
+  .timeline-content { width: calc(100% - 3.5rem) !important; margin-right: 3.5rem !important; margin-left: 0 !important; }
+  .timeline-item:nth-child(even) .timeline-content { margin-right: 3.5rem !important; margin-left: 0 !important; }
+  .masonry { columns: 2; }
+  .speech-bubble { max-width: 95%; }
+}
+@media (max-width: 480px) {
+  .masonry { columns: 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="font-display">אריאל ❤️👶🏻</h1>
+    <p class="subtitle">שנה של מעבר לירושלים, יומולדת שנתיים, ושלל הרפתקאות</p>
+    <div class="year-badge">סיכום שנה 2025</div>
+  </div>
+  <div class="scroll-indicator">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- Intro -->
+<section class="intro-section">
+  <p>
+    שנה שלמה של צמיחה, גילויים והרפתקאות קטנות-גדולות. מהשירה הראשונה לריינה, דרך המעבר הגדול לירושלים, ועד חגיגת יום ההולדת השני — אריאל ממשיך להפתיע, לרגש ולהצחיק את כל המשפחה. הנה הרגעים הכי יפים שלנו יחד.
+  </p>
+</section>
+
+<!-- Speech Bubbles -->
+<section class="quote-section">
+  <div class="speech-bubble">
+    <div class="author">אמא (Nona)</div>
+    <div class="text">This kid is so adorable!</div>
+  </div>
+  <div class="speech-bubble right">
+    <div class="author">אופק (דודה)</div>
+    <div class="text">למעוך אותו 🥺🥹</div>
+  </div>
+  <div class="speech-bubble">
+    <div class="author">בתיה</div>
+    <div class="text">אני לא סוביאטיבית אבל אריאל נראה לי מאוד מתקדם בדיבור ובהבנת הסביבה, יותר מילדים אחרים בגילו ❤️</div>
+  </div>
+  <div class="speech-bubble right">
+    <div class="author">נדב (אבא)</div>
+    <div class="text">אושר</div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section class="gallery-section">
+  <h2 class="font-display">הגלריה שלנו</h2>
+  <div class="masonry" id="gallery">
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="timeline-section">
+  <h2 class="font-display" style="text-align:center;font-size:2rem;color:#1a5276;margin-bottom:2rem;">ציר הזמן שלנו</h2>
+  <div class="timeline" id="timeline">
+  </div>
+</section>
+
+<!-- More Speech Bubbles -->
+<section class="quote-section">
+  <div class="speech-bubble">
+    <div class="author">אמא (Nona)</div>
+    <div class="text">I love his enthusiasm "ופתאום" - he's living the story, not just repeating it!</div>
+  </div>
+  <div class="speech-bubble right">
+    <div class="author">בתיה</div>
+    <div class="text">לפי הרושם שאני מקבלת, הוא יגיע לאוניברסיטה לפני שנגיד לו בהצלחה 😊💛</div>
+  </div>
+  <div class="speech-bubble">
+    <div class="author">אלי מזור (סבא)</div>
+    <div class="text">תמונה פשוט מדהימה מדהימה 🙏🩵</div>
+  </div>
+  <div class="speech-bubble right">
+    <div class="author">אמא (Nona)</div>
+    <div class="text">This kid's superpower is his concern for others and his love of learning! Can't beat the combination!!</div>
+  </div>
+  <div class="speech-bubble">
+    <div class="author">נדב (אבא)</div>
+    <div class="text">I'm having a lot of fun 😊</div>
+  </div>
+  <div class="speech-bubble right">
+    <div class="author">אלי מזור (סבא)</div>
+    <div class="text">הוא זכה בהן והן זכו בו ❤️</div>
+  </div>
+</section>
+
+<!-- Closing Quote -->
+<section class="closing-quote">
+  <blockquote>"This little boy is absolutely adorable and has amazing and supportive parents!"</blockquote>
+  <cite>— Nona, 2025</cite>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>נדב ♥ שיר ♥ אריאל ♥ ריינה 🐶</p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6;">אמא · אבא · אופק · אירית · אלי · אביגייל · קליה · עפר · מידד · אמתי · בתיה · הראל</p>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">‹</button>
+  <img id="lightbox-img" src="" alt="">
+  <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">›</button>
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<script>
+// Gallery data
+const galleryItems = [
+  { src: 'album_ariel/IMG-20250102-WA0012.jpg', caption: 'שר סרנדה לריינה אהובתו' },
+  { src: 'album_ariel/IMG-20250109-WA0017.jpg', caption: 'ירושלים 🥶' },
+  { src: 'album_ariel/IMG-20250117-WA0015.jpg', caption: 'שבת שלום 🚜' },
+  { src: 'album_ariel/IMG-20250201-WA0001.jpg', caption: 'נשפך שומשום שחור — אז אמרנו נשחק' },
+  { src: 'album_ariel/IMG-20250211-WA0012.jpg', caption: 'מילת היום: טרקטורון' },
+  { src: 'album_ariel/IMG-20250221-WA0003.jpg', caption: 'לקט מעון עם דודה 😍' },
+  { src: 'album_ariel/IMG-20250301-WA0007.jpg', caption: 'ביקש בימבה אופנוע — קודם צריך מבחן תיאוריה!' },
+  { src: 'album_ariel/IMG-20250309-WA0044.jpg', caption: 'אמא מעולה, לא מתרגשת מבוץ וממים!' },
+  { src: 'album_ariel/IMG-20250326-WA0031.jpg', caption: 'יצא מהחנות והלך לסטימצקי לקרוא ספרים 🤓' },
+  { src: 'album_ariel/IMG-20250404-WA0000.jpg', caption: 'נפתחה העונה ☀️' },
+  { src: 'album_ariel/IMG-20250411-WA0037.jpg', caption: 'חג שמח מירושלים!' },
+  { src: 'album_ariel/IMG-20250420-WA0046.jpg', caption: 'טיול בעין חמד עם אמא וחברים' },
+  { src: 'album_ariel/IMG-20250426-WA0031.jpg', caption: 'השוקולד של הטבע — חרוב!' },
+  { src: 'album_ariel/IMG-20250504-WA0005.jpg', caption: 'חגיגות יום הולדת לאמא שיר 💐' },
+  { src: 'album_ariel/IMG-20250516-WA0007.jpg', caption: 'עם דודה אופק ❤️' },
+  { src: 'album_ariel/IMG-20250525-WA0011.jpg', caption: 'פלסטלינה ופירות בפארק עם דודה' },
+  { src: 'album_ariel/IMG-20250604-WA0007.jpg', caption: 'עם בת הדודה קשת' },
+  { src: 'album_ariel/IMG-20250606-WA0002.jpg', caption: 'Gan Nona has yummy moments!' },
+  { src: 'album_ariel/IMG-20250626-WA0005.jpg', caption: 'גדל לנו הבחור' },
+  { src: 'album_ariel/IMG-20250725-WA0000.jpg', caption: 'בוקר טוב של חופשה ☀️' },
+  { src: 'album_ariel/IMG-20250726-WA0000.jpg', caption: 'חיוך של בופה ישראלית' },
+  { src: 'album_ariel/IMG-20250729-WA0012.jpg', caption: 'גלידה כחולה וורודה וחומה 🍦' },
+  { src: 'album_ariel/IMG-20250816-WA0001.jpg', caption: 'חגיגת יום הולדת שנתיים! 🎂' },
+  { src: 'album_ariel/IMG-20250816-WA0002.jpg', caption: 'עוגת ארנב מדודה אופק 🐰' },
+  { src: 'album_ariel/IMG-20250822-WA0004.jpg', caption: 'החיים הטובים' },
+  { src: 'album_ariel/IMG-20250825-WA0011.jpg', caption: 'מזכרת מהגן חיות 🦁' },
+  { src: 'album_ariel/IMG-20250828-WA0033.jpg', caption: 'מסיבת יומולדת טרקטור 🚜' },
+  { src: 'album_ariel/IMG-20250831-WA0014.jpg', caption: 'יום הסתגלות ראשון בגן 🥹' },
+  { src: 'album_ariel/IMG-20250905-WA0030.jpg', caption: 'שישי עם בני הדודים' },
+  { src: 'album_ariel/IMG-20250910-WA0000.jpg', caption: 'אאכל הרבה עלים ואני ארגיש much better' },
+  { src: 'album_ariel/IMG-20250924-WA0001.jpg', caption: 'בוקר טוב 🤸‍♂️' },
+  { src: 'album_ariel/IMG-20251009-WA0005.jpg', caption: 'רגע מושלם בים' },
+  { src: 'album_ariel/IMG-20251013-WA0005.jpg', caption: 'חג סוכות שמח 💛' },
+  { src: 'album_ariel/IMG-20251026-WA0040.jpg', caption: 'חוגג יומולדת בגן 😍' },
+  { src: 'album_ariel/IMG-20251104-WA0003.jpg', caption: 'רוק סטאר 🎸' },
+  { src: 'album_ariel/IMG-20251210-WA0022.jpg', caption: 'חנוכה שמח!' },
+  { src: 'album_ariel/IMG-20251231-WA0037.jpg', caption: 'סוף שנה עם בת הדודה 🌟' }
+];
+
+// Timeline data
+const timelineEvents = [
+  {
+    date: 'ינואר 2025',
+    title: 'שירים ראשונים',
+    text: 'אריאל שר סרנדה לריינה הכלבה, מגלה חיות בטבע, ואוהב טרקטורים. ירושלים קרה אבל הלב חם.',
+    img: 'album_ariel/IMG-20250102-WA0012.jpg',
+    quote: { text: 'This kid is so adorable!', author: 'Nona' }
+  },
+  {
+    date: 'פברואר 2025',
+    title: 'שף קטן וחלומות גדולים',
+    text: 'מכין עוגיות, נוהג באוטו, ומלמד אותנו את המילה "טרקטורון". סבא אלי קנה לו כדורסל!',
+    img: 'album_ariel/IMG-20250211-WA0012.jpg',
+    quote: { text: 'משאללה העינים הכי יפות בעולם הכי תמימות 😍', author: 'דודה אופק' }
+  },
+  {
+    date: 'מרץ 2025',
+    title: 'חובב ספרים ובוץ',
+    text: 'ביקש אופנוע — אבא אמר שצריך קודם תיאוריה. יצא מחנות נעליים והלך לסטימצקי לקרוא ספרים. משחק בבוץ ואופה פאי דובדבנים.',
+    img: 'album_ariel/IMG-20250326-WA0031.jpg',
+    quote: { text: 'את מי זה מזכיר לי?', author: 'סבא' }
+  },
+  {
+    date: 'אפריל 2025',
+    title: '🏠 עוברים לירושלים!',
+    text: 'אירוע השנה — המעבר לשכונת בקעה! רבע שעה ברגל מאביגייל וקשת, ליד ספתא אירית. כל המשפחה עוזרת — אירית משעשעת את אריאל, אלי מספק קרטונים, ונונה אורזת.',
+    img: 'album_ariel/IMG-20250411-WA0037.jpg',
+    quote: { text: 'Welcome to your new home! So glad you\'re here!!', author: 'Nona' }
+  },
+  {
+    date: 'אפריל 2025',
+    title: 'טיולים ראשונים בירושלים',
+    text: 'עין חמד עם אמא וחברים, חרוב ואצטרובלים, וגילוי הטבע הירושלמי.',
+    img: 'album_ariel/IMG-20250420-WA0046.jpg'
+  },
+  {
+    date: 'מאי 2025',
+    title: 'מטבח חדש ויומולדת לאמא',
+    text: 'מטבח משחק יד-שנייה עם מדיח ותנור שנפתח לצד! חגיגות יום הולדת לשיר עם כל המשפחה.',
+    img: 'album_ariel/IMG-20250504-WA0005.jpg',
+    quote: { text: 'כזה אירגון מוצלח לא נמצא בכל מפעל!', author: 'בתיה' }
+  },
+  {
+    date: 'יוני 2025',
+    title: 'קיץ ובני דודים',
+    text: 'משחק עם קשת ודניאל, גן של נונה, לומד על משאיות עפר, ומכין לחם.',
+    img: 'album_ariel/IMG-20250604-WA0007.jpg',
+    quote: { text: 'אושר אמיתי 🧡🙏', author: 'סבא אלי' }
+  },
+  {
+    date: 'יולי 2025',
+    title: 'חופשה ופיצוץ שפה',
+    text: 'השפה מתפתחת בטירוף — "ופתאום!" עם כל הדרמטיות. חופשה משפחתית, גלידה, ו"נשק" מילואים כמו אבא.',
+    img: 'album_ariel/IMG-20250726-WA0000.jpg',
+    quote: { text: 'He\'s living the story, not just repeating it!', author: 'Nona' }
+  },
+  {
+    date: 'אוגוסט 2025',
+    title: '🎂 יום הולדת שנתיים!',
+    text: 'עוגת ארנב מדודה אופק, מסיבת טרקטורים, קורקינט חדש, וביקור בגן חיות. אריאל מתרגש לפגוש את הבן דוד החדש של קליה!',
+    img: 'album_ariel/IMG-20250816-WA0001.jpg',
+    quote: { text: 'מזל טוב לנסיך! ❤️', author: 'מידד' },
+    special: true
+  },
+  {
+    date: 'אוגוסט 2025',
+    title: 'יום ראשון בגן',
+    text: 'יום הסתגלות ראשון בגן החדש בירושלים. אריאל workaholic — לא מסכים להפסיק בשביל גלידה!',
+    img: 'album_ariel/IMG-20250831-WA0014.jpg',
+    quote: { text: 'This kid is a workaholic, won\'t even come eat ice cream', author: 'אבא' }
+  },
+  {
+    date: 'ספטמבר 2025',
+    title: 'צומח ומפתיע',
+    text: '"לאריאל יש stomachache, אני יאכל הרבה עלים ואני ארגיש much better". קשת ואריאל מלמדים אחד את השני, ואריאל זוכר את הבגלה של איברהים!',
+    img: 'album_ariel/IMG-20250910-WA0000.jpg',
+    quote: { text: 'Nothing better than cousins!!', author: 'Nona' }
+  },
+  {
+    date: 'אוקטובר 2025',
+    title: 'חופשת סוכות בים',
+    text: 'חופשה משפחתית עם בריכה, ים, וקריוקי. אריאל שר שלום עליכם! ואומר לסבתא בטלפון: "אני בסדר, אני בחופש, אני נהנה פה".',
+    img: 'album_ariel/IMG-20251009-WA0005.jpg',
+    quote: { text: 'He has developed his own choreography! What an amazing kid!', author: 'Nona' }
+  },
+  {
+    date: 'אוקטובר 2025',
+    title: 'יומולדת בגן',
+    text: 'חוגגים יומולדת בגן לילדי הקיץ! קשת שרה לאריאל, ואריאל מחבק את כולם.',
+    img: 'album_ariel/IMG-20251026-WA0040.jpg',
+    quote: { text: 'It\'s so fantastic that they\'re growing up together!', author: 'Nona' }
+  },
+  {
+    date: 'נובמבר 2025',
+    title: 'רוק סטאר קטן 🎸',
+    text: 'מאוד מחפש מוזיקה — אוהב כלי נגינה, רמקול, ושירי הגן. מלמד את ההורים שירים חדשים!',
+    img: 'album_ariel/IMG-20251104-WA0003.jpg',
+    quote: { text: 'שימו לב הורים, הילד מחפש מוזיקה 😍', author: 'בתיה' }
+  },
+  {
+    date: 'דצמבר 2025',
+    title: 'חנוכה ושלג בירושלים',
+    text: 'מסיבת חנוכה בגן, הולך לגן יער, וגדל לנו ילד ירושלמי אמיתי. נושא נעליים של קשת ולובש חן.',
+    img: 'album_ariel/IMG-20251210-WA0022.jpg',
+    quote: { text: 'This kid\'s superpower is his concern for others and his love of learning!', author: 'Nona' }
+  }
+];
+
+// Render gallery
+const galleryEl = document.getElementById('gallery');
+galleryItems.forEach((item, i) => {
+  const div = document.createElement('div');
+  div.className = 'masonry-item';
+  div.innerHTML = `<img src="${item.src}" alt="${item.caption}" loading="lazy"><div class="caption">${item.caption}</div>`;
+  div.onclick = () => openLightbox(i);
+  galleryEl.appendChild(div);
+});
+
+// Render timeline
+const timelineEl = document.getElementById('timeline');
+timelineEvents.forEach((ev, i) => {
+  const div = document.createElement('div');
+  div.className = 'timeline-item' + (ev.special ? ' birthday-special' : '');
+  let quoteHtml = ev.quote ? `<p style="margin-top:0.5rem;font-style:italic;color:#17a2b8;">"${ev.quote.text}" — ${ev.quote.author}</p>` : '';
+  div.innerHTML = `<div class="timeline-content">
+    <div class="timeline-date">${ev.date}</div>
+    <h3>${ev.title}</h3>
+    <p>${ev.text}</p>
+    ${quoteHtml}
+    <img src="${ev.img}" alt="${ev.title}" loading="lazy" onclick="openLightbox(${galleryItems.findIndex(g => g.src === ev.img)})">
+  </div>`;
+  timelineEl.appendChild(div);
+});
+
+// Lightbox
+let currentLightbox = 0;
+function openLightbox(index) {
+  if (index < 0) return;
+  currentLightbox = index;
+  document.getElementById('lightbox-img').src = galleryItems[index].src;
+  document.getElementById('lightbox-caption').textContent = galleryItems[index].caption;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function navigateLightbox(dir) {
+  currentLightbox = (currentLightbox + dir + galleryItems.length) % galleryItems.length;
+  document.getElementById('lightbox-img').src = galleryItems[currentLightbox].src;
+  document.getElementById('lightbox-caption').textContent = galleryItems[currentLightbox].caption;
+}
+document.getElementById('lightbox').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('lightbox')) closeLightbox();
+});
+document.addEventListener('keydown', (e) => {
+  if (!document.getElementById('lightbox').classList.contains('active')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') navigateLightbox(1);
+  if (e.key === 'ArrowRight') navigateLightbox(-1);
+});
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.timeline-item, .masonry-item, .speech-bubble').forEach(el => {
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
