@@ -41,6 +41,7 @@ Use this context to attribute quotes and label events accurately.
 - `family_album_2025.html` → images in `album/` → https://yaakovch.github.io/albums/family_album_2025.html
 - `chen_zion_album.html` → images in `album_chen_zion/` → https://yaakovch.github.io/albums/chen_zion_album.html
 - `mishpuha_levy_album.html` → images in `album_mishpuha_levy/` → https://yaakovch.github.io/albums/mishpuha_levy_album.html
+- `ariel_album.html` → images in `album_ariel/` → https://yaakovch.github.io/albums/ariel_album.html
 
 ## Notes
 - `.gitignore` blocks `*.jpg` (and other media) by default — each album image folder needs an explicit exception
